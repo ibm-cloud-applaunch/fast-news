@@ -75,9 +75,15 @@ public class NewsFeedRecyclerViewAdapter extends Adapter<NewsFeedRecyclerViewAda
 
         public void bindData(final NewsFeedModel feedModel, final OnItemClickListener clickListener){
             tvNewsTitle.setText(feedModel.title);
-            tvNewsDesc.setText(feedModel.desc);
-//        holder.ivNewsImage.setImageDrawable(feedModel.title);
-//        holder.tvNewsTitle.setText(feedModel.title);
+
+            if(feedModel.isAudioAvailable){
+                tvNewsDesc.setVisibility(View.GONE);
+                ivAudioAvailable.setVisibility(View.VISIBLE);
+            } else {
+                ivAudioAvailable.setVisibility(View.GONE);
+                tvNewsDesc.setVisibility(View.VISIBLE);
+                tvNewsDesc.setText(feedModel.desc);
+            }
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

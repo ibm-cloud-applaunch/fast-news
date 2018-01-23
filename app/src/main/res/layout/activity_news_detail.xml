@@ -20,14 +20,14 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/appBar"
-        android:padding="10dp">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/iv_news_detail_image"
@@ -41,22 +41,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:ellipsize="end"
                 android:gravity="center_horizontal"
-                tools:text="Title"
+                android:maxLines="2"
                 android:textSize="26sp"
                 android:textStyle="bold"
-                android:ellipsize="end"
-                android:maxLines="2"/>
+                tools:text="Title" />
 
             <TextView
                 android:id="@+id/tv_news_detail_author"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="- Author Awesome"
-                android:textSize="15sp"
+                android:layout_marginTop="10dp"
                 android:gravity="end"
-                android:textStyle="italic"/>
+                android:textSize="15sp"
+                android:textStyle="italic"
+                tools:text="- Author Awesome" />
 
             <View
                 android:layout_width="match_parent"
@@ -66,12 +66,49 @@
 
             <TextView
                 android:id="@+id/tv_news_detail_desc"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Some details here"
-                android:textSize="15sp"
-                android:gravity="fill_horizontal" />
+                android:layout_marginTop="10dp"
+                android:gravity="fill_horizontal"
+                android:textSize="18sp"
+                tools:text="Some news description" />
+
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_media_controls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/media_layout_background"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_media_previous" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@android:drawable/ic_media_play" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@android:drawable/ic_media_pause" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@android:drawable/ic_media_next" />
+
+    </LinearLayout>
 </RelativeLayout>

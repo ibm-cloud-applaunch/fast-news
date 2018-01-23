@@ -1,5 +1,6 @@
 package com.ibm.examples.yashsoni.applaunchdemo.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -73,7 +74,13 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
     }
 
     private boolean isSubscribedUser() {
-        return false;
+        int index = 0;
+        SharedPreferences sharedPref = this.getSharedPreferences(
+                getString(R.string.app_name), Context.MODE_PRIVATE);
+        if(sharedPref.getString(AppCommons.LOGGED_IN_USER, "").equalsIgnoreCase(AppCommons.users[1])){
+            index = 1;
+        }
+        return AppCommons.userSubscription[index];
     }
 
     @Override
