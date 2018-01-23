@@ -73,7 +73,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
     }
 
     private boolean isSubscribedUser() {
-        return true;
+        return false;
     }
 
     @Override

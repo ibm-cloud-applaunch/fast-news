@@ -14,8 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".activities.LoginActivity"
-            android:label="@string/title_activity_login">
+            android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +23,7 @@
         </activity>
         <activity android:name=".activities.NewsFeedActivity" />
         <activity android:name=".activities.NewsDetailActivity" />
-        <activity android:name=".activities.SubscriptionActivity"></activity>
+        <activity android:name=".activities.SubscriptionActivity" />
     </application>
 
 </manifest>

@@ -26,7 +26,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="Title"
+                tools:text="Title"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 android:ellipsize="end"
@@ -53,7 +53,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="- Author Awesome"
+                tools:text="- Author Awesome"
                 android:textSize="15sp"
                 android:gravity="end"
                 android:textStyle="italic"/>
@@ -69,7 +69,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Some details here"
+                tools:text="Some details here"
                 android:textSize="15sp"
                 android:gravity="fill_horizontal" />
         </LinearLayout>
