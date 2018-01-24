@@ -14,6 +14,8 @@ public class AppCommons {
     public static final Boolean[] userSubscription = new Boolean[] { true, false };
     public static final String NEWS_FEED_DETAILS = "news_feed_details";
     public static final String LOGGED_IN_USER = "logged_in_user";
+    public static final String FEILD_IS_SUBSCRIBED = "isSubscribed";
+    public static final String FEILD_SUBSCRIPTION = "subscription";
 
     private static List<NewsFeedModel> dataList;
 

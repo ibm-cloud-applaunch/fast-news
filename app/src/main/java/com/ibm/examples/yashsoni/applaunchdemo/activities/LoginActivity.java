@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
         sharedPref = this.getSharedPreferences(
                 getString(R.string.app_name), Context.MODE_PRIVATE);
-        if(sharedPref.contains(AppCommons.LOGGED_IN_USER)){
+        if (sharedPref.contains(AppCommons.LOGGED_IN_USER)) {
             Intent i = new Intent(LoginActivity.this, NewsFeedActivity.class);
             startActivity(i);
             finish();
@@ -53,10 +53,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public boolean isValidUser() {
         String userId = etUserId.getText().toString().trim();
-        if(userId.isEmpty()){
-            return false;
-        }
-
-        return (userId.equalsIgnoreCase(AppCommons.users[0]) || userId.equalsIgnoreCase(AppCommons.users[1]));
+        return !userId.isEmpty() &&
+                (userId.equalsIgnoreCase(AppCommons.users[0]) || userId.equalsIgnoreCase(AppCommons.users[1]));
     }
+
 }

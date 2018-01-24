@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -19,11 +20,17 @@ import android.view.MenuItem;
 import com.ibm.examples.yashsoni.applaunchdemo.R;
 import com.ibm.examples.yashsoni.applaunchdemo.adapters.NewsFeedRecyclerViewAdapter;
 import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
+import com.ibm.examples.yashsoni.applaunchdemo.commons.AppLaunchConstants;
 import com.ibm.examples.yashsoni.applaunchdemo.interfaces.OnItemClickListener;
 import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
 import com.ibm.mobile.applaunch.android.AppLaunchFailResponse;
 import com.ibm.mobile.applaunch.android.AppLaunchResponse;
+import com.ibm.mobile.applaunch.android.api.AppLaunch;
+import com.ibm.mobile.applaunch.android.api.AppLaunchConfig;
 import com.ibm.mobile.applaunch.android.api.AppLaunchListener;
+import com.ibm.mobile.applaunch.android.api.AppLaunchUser;
+import com.ibm.mobile.applaunch.android.api.ICRegion;
+import com.ibm.mobile.applaunch.android.api.RefreshPolicy;
 
 public class NewsFeedActivity extends AppCompatActivity implements AppLaunchListener {
 
@@ -31,12 +38,43 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
     private AppBarLayout appBarLayout;
     private Toolbar toolbar;
     private RecyclerView recyclerView;
+    private SharedPreferences sharedPref;
+    private String userId;
+    private AppLaunchListener listener = this;
+    private AppLaunchUser appLaunchUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
+
+        sharedPref = this.getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+        userId = sharedPref.getString(AppCommons.LOGGED_IN_USER, "");
+
+        initAppLaunchSDK();
         initViews();
+    }
+
+    private void initAppLaunchSDK() {
+        // Initialize the SDK
+        String androidId = Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.ANDROID_ID) + "_" + userId;
+
+        AppLaunchConfig appLaunchConfig = new AppLaunchConfig.Builder()
+                .eventFlushInterval(10)
+                .cacheExpiration(10)
+                .fetchPolicy(RefreshPolicy.REFRESH_ON_EVERY_START)
+                .deviceId(androidId)
+                .build();
+        appLaunchUser = new AppLaunchUser.Builder()
+                .userId(userId)
+                .custom(AppCommons.FEILD_SUBSCRIPTION, getSubscriptionStatus())
+                .build();
+        AppLaunch.getInstance().init(getApplication(), ICRegion.US_SOUTH, AppLaunchConstants.appGuid, AppLaunchConstants.clientSecret, appLaunchConfig, appLaunchUser, listener);
+    }
+
+    private String getSubscriptionStatus() {
+        return String.valueOf(isSubscribedUser());
     }
 
     private void initViews() {
@@ -55,18 +93,32 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
             @Override
             public void onItemClick(NewsFeedModel feedModel) {
                 Intent i;
-                if(feedModel.isAudioAvailable){
-                    if(isSubscribedUser()) {
+                try {
+                    if (feedModel.isAudioAvailable) {
+//                        if (AppLaunch.getInstance().isFeatureEnabled("")) {
+//                            String property = AppLaunch.getInstance().getPropertyOfFeature("", "");
+//                            if ((Boolean.valueOf(property)) {
+//
+//                            }else{
+//
+//                            }
+//                        }
+//
+
+                        if (isSubscribedUser()) {
+                            i = new Intent(NewsFeedActivity.this, NewsDetailActivity.class);
+                            i.putExtra(AppCommons.NEWS_FEED_DETAILS, feedModel);
+                        } else {
+                            i = new Intent(NewsFeedActivity.this, SubscriptionActivity.class);
+                        }
+                    } else {
                         i = new Intent(NewsFeedActivity.this, NewsDetailActivity.class);
                         i.putExtra(AppCommons.NEWS_FEED_DETAILS, feedModel);
-                    } else {
-                        i = new Intent(NewsFeedActivity.this, SubscriptionActivity.class);
                     }
-                } else {
-                    i = new Intent(NewsFeedActivity.this, NewsDetailActivity.class);
-                    i.putExtra(AppCommons.NEWS_FEED_DETAILS, feedModel);
+                    startActivity(i);
+                } catch (Exception e) {
+
                 }
-                startActivity(i);
             }
         });
         adapter.setDataList(AppCommons.getDataList());
@@ -75,9 +127,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
 
     private boolean isSubscribedUser() {
         int index = 0;
-        SharedPreferences sharedPref = this.getSharedPreferences(
-                getString(R.string.app_name), Context.MODE_PRIVATE);
-        if(sharedPref.getString(AppCommons.LOGGED_IN_USER, "").equalsIgnoreCase(AppCommons.users[1])){
+        if (userId.equalsIgnoreCase(AppCommons.users[1])) {
             index = 1;
         }
         return AppCommons.userSubscription[index];
