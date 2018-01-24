@@ -42,7 +42,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:id="@+id/subsc399"
+                android:id="@+id/ll_subs_plan_399"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -107,7 +107,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/subsc999"
+                android:id="@+id/ll_subs_plan_999"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

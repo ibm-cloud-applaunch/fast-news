@@ -5,7 +5,7 @@ package com.ibm.examples.yashsoni.applaunchdemo.commons;
  */
 
 public class AppLaunchConstants {
-    public static String appGuid = "bbd22df3-ea0e-4264-a9aa-40d996920390";
-    public static String appSecret = "bc3de348-c01d-450c-b491-02e55441c351";
-    public static String clientSecret = "1c361bd7-f059-418d-b1d9-dc5f2d1fc555";
+    public static String appGuid = "7e4fbadf-9ccd-40fb-9313-a3066bb5b13d";
+    public static String clientSecret = "88f246d9-2cd4-42ce-baa3-e51c91d9d9e5";
+    public static String appSecret = "b6da32cc-6c56-41d1-8fe7-88be3ab391ea";
 }

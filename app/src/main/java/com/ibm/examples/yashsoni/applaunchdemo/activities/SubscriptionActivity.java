@@ -9,15 +9,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.ibm.examples.yashsoni.applaunchdemo.R;
 import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
+import com.ibm.mobile.applaunch.android.api.AppLaunch;
+import com.ibm.mobile.applaunch.android.api.AppLaunchException;
 
 public class SubscriptionActivity extends AppCompatActivity {
 
     private static final String TAG = SubscriptionActivity.class.getSimpleName();
     private AppBarLayout appBarLayout;
     private Toolbar toolbar;
+    private LinearLayout llPlan1, llPlan2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,21 @@ public class SubscriptionActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(Color.BLACK);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));
+
+        llPlan1 = findViewById(R.id.ll_subs_plan_399);
+        llPlan2 = findViewById(R.id.ll_subs_plan_999);
+        llPlan2.setVisibility(View.GONE);
+
+        try {
+            boolean showAnnualPlan = Boolean.valueOf(AppLaunch.getInstance().getPropertyOfFeature("_chbrv44jb", "_hk2frf8vs"));
+            if(showAnnualPlan){
+                llPlan2.setVisibility(View.VISIBLE);
+            } else {
+                llPlan2.setVisibility(View.GONE);
+            }
+        } catch (AppLaunchException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -45,7 +65,7 @@ public class SubscriptionActivity extends AppCompatActivity {
             SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.remove(AppCommons.LOGGED_IN_USER);
-            editor.commit();
+            editor.apply();
 
             Intent i = new Intent(this, LoginActivity.class);
             startActivity(i);
