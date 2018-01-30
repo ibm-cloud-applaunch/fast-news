@@ -1,5 +1,6 @@
 package com.ibm.examples.yashsoni.applaunchdemo.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
@@ -9,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.ibm.examples.yashsoni.applaunchdemo.R;
+import com.ibm.examples.yashsoni.applaunchdemo.commons.ThemeUtils;
 import com.ibm.examples.yashsoni.applaunchdemo.interfaces.OnItemClickListener;
 import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
 
@@ -22,16 +25,14 @@ import java.util.List;
 
 public class NewsFeedRecyclerViewAdapter extends Adapter<NewsFeedRecyclerViewAdapter.NewsFeedViewHolder> {
 
+    private Context context;
     private List<NewsFeedModel> dataList;
     private OnItemClickListener clickListener;
 
-    public NewsFeedRecyclerViewAdapter(OnItemClickListener clickListener){
+    public NewsFeedRecyclerViewAdapter(Context context, OnItemClickListener clickListener){
+        this.context = context;
         this.dataList = new ArrayList<>();
         this.clickListener = clickListener;
-    }
-
-    public List<NewsFeedModel> getDataList() {
-        return dataList;
     }
 
     public void setDataList(List<NewsFeedModel> dataList) {
@@ -43,6 +44,7 @@ public class NewsFeedRecyclerViewAdapter extends Adapter<NewsFeedRecyclerViewAda
     public NewsFeedViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.news_feed_list_item, parent, false);
+        itemView.setBackgroundColor(ThemeUtils.getLightBackgroundColor(context));
         return new NewsFeedViewHolder(itemView);
     }
 
@@ -57,14 +59,14 @@ public class NewsFeedRecyclerViewAdapter extends Adapter<NewsFeedRecyclerViewAda
         return dataList.size();
     }
 
-    public class NewsFeedViewHolder extends RecyclerView.ViewHolder {
+    class NewsFeedViewHolder extends RecyclerView.ViewHolder {
         private RelativeLayout itemView;
         TextView tvNewsTitle;
         TextView tvNewsDesc;
         ImageView ivNewsImage;
         ImageView ivAudioAvailable;
 
-        public NewsFeedViewHolder(View view) {
+        NewsFeedViewHolder(View view) {
             super(view);
             itemView = view.findViewById(R.id.rl_list_item);
             tvNewsTitle = view.findViewById(R.id.tv_news_title);
@@ -73,8 +75,14 @@ public class NewsFeedRecyclerViewAdapter extends Adapter<NewsFeedRecyclerViewAda
             ivAudioAvailable = view.findViewById(R.id.iv_audio_available);
         }
 
-        public void bindData(final NewsFeedModel feedModel, final OnItemClickListener clickListener){
+        void bindData(final NewsFeedModel feedModel, final OnItemClickListener clickListener){
             tvNewsTitle.setText(feedModel.title);
+
+            if(feedModel.imageUrl != null && !feedModel.imageUrl.isEmpty()) {
+                Glide.with(context)
+                        .load(feedModel.imageUrl)
+                        .into(ivNewsImage);
+            }
 
             if(feedModel.isAudioAvailable){
                 tvNewsDesc.setVisibility(View.GONE);

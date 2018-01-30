@@ -14,34 +14,33 @@ import android.widget.LinearLayout;
 
 import com.ibm.examples.yashsoni.applaunchdemo.R;
 import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
+import com.ibm.examples.yashsoni.applaunchdemo.commons.ThemeUtils;
 import com.ibm.mobile.applaunch.android.api.AppLaunch;
 import com.ibm.mobile.applaunch.android.api.AppLaunchException;
 
 public class SubscriptionActivity extends AppCompatActivity {
 
     private static final String TAG = SubscriptionActivity.class.getSimpleName();
-    private AppBarLayout appBarLayout;
-    private Toolbar toolbar;
-    private LinearLayout llPlan1, llPlan2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subscription);
 
-        appBarLayout = findViewById(R.id.appBar);
-        toolbar = appBarLayout.findViewById(R.id.toolbar);
+        AppBarLayout appBarLayout = findViewById(R.id.appBar);
+        Toolbar toolbar = appBarLayout.findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(Color.BLACK);
+        toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
-        llPlan1 = findViewById(R.id.ll_subs_plan_399);
-        llPlan2 = findViewById(R.id.ll_subs_plan_999);
+        LinearLayout llPlan1 = findViewById(R.id.ll_subs_plan_399);
+        LinearLayout llPlan2 = findViewById(R.id.ll_subs_plan_999);
         llPlan2.setVisibility(View.GONE);
 
         try {
             boolean showAnnualPlan = Boolean.valueOf(AppLaunch.getInstance().getPropertyOfFeature("_chbrv44jb", "_hk2frf8vs"));
-            if(showAnnualPlan){
+            if (showAnnualPlan) {
                 llPlan2.setVisibility(View.VISIBLE);
             } else {
                 llPlan2.setVisibility(View.GONE);

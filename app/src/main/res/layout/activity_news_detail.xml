@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_news_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ibm.examples.yashsoni.applaunchdemo.activities.NewsDetailActivity">
@@ -31,8 +32,8 @@
 
             <ImageView
                 android:id="@+id/iv_news_detail_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/news_icon" />
 
@@ -69,46 +70,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="fill_horizontal"
-                android:textSize="18sp"
-                tools:text="Some news description" />
+                android:textSize="22sp"
+                tools:text="Some news description ahdsfhldjfsjhlfhjkhjaskdhjsdhjkfdsajhksdhjkhdjlksahjkdsfhjjdhskakhjdasfkjhfdsaljdfahsjjhdfksahjdalsfhjdsjhkdasdhjksajhadfkhjkdsfhjkafhjksahfkhjkafhjkafhjkhjkdsfahjkadhjkfjksd" />
 
+            <LinearLayout
+                android:id="@+id/ll_media_controls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/media_layout_background"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@android:drawable/ic_media_previous" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:src="@android:drawable/ic_media_play" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:src="@android:drawable/ic_media_pause" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:src="@android:drawable/ic_media_next" />
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/ll_media_controls"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:background="@drawable/media_layout_background"
-        android:orientation="horizontal"
-        android:padding="20dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_media_previous" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@android:drawable/ic_media_play" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@android:drawable/ic_media_pause" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@android:drawable/ic_media_next" />
-
-    </LinearLayout>
 </RelativeLayout>

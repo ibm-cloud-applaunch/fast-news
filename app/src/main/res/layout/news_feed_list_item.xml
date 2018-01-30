@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_list_item"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp">
@@ -10,12 +10,12 @@
         android:id="@+id/iv_news_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/news_icon"/>
+        android:src="@drawable/news_icon" />
 
     <LinearLayout
-        android:layout_toEndOf="@+id/iv_news_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/iv_news_image"
         android:orientation="vertical"
         android:paddingLeft="10dp">
 
@@ -39,20 +39,20 @@
                 android:id="@+id/iv_audio_available"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/audio"
-                android:layout_alignParentEnd="true"/>
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/audio" />
         </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_news_desc"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textStyle="bold"
-            android:text="Title"
-            android:maxLines="2"
             android:layout_marginEnd="10dp"
             android:ellipsize="end"
-            android:textSize="15sp"/>
+            android:maxLines="2"
+            android:text="Title"
+            android:textSize="15sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </RelativeLayout>
