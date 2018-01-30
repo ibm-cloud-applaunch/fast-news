@@ -252,7 +252,6 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
         Log.i(TAG, appLaunchResponse.toString());
         ThemeUtils.getThemeFeature(this);
         newsFeedPublishSubject.onNext(true);
-
     }
 
     @Override
