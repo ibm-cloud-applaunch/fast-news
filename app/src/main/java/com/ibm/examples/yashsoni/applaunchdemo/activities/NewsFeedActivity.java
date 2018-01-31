@@ -25,7 +25,6 @@ import com.ibm.examples.yashsoni.applaunchdemo.R;
 import com.ibm.examples.yashsoni.applaunchdemo.adapters.NewsFeedRecyclerViewAdapter;
 import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
 import com.ibm.examples.yashsoni.applaunchdemo.commons.AppLaunchConstants;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.ThemeUtils;
 import com.ibm.examples.yashsoni.applaunchdemo.interfaces.OnItemClickListener;
 import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
 import com.ibm.mobile.applaunch.android.AppLaunchFailResponse;
@@ -63,7 +62,6 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
     private String userId;
     private String newsApiResult = null;
     private AppLaunchListener listener = this;
-    private AppLaunchUser appLaunchUser;
     private PublishSubject<Boolean> showLoader = PublishSubject.create();
     private PublishSubject<Boolean> newsFeedPublishSubject = PublishSubject.create();
 
@@ -121,7 +119,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
                                 .url(AppCommons.URL_FOR_NEWS_FEED)
                                 .build();
 
-                        Response response = null;
+                        Response response;
                         response = client.newCall(request).execute();
                         newsApiResult = response.body().string();
                     } catch (IOException e) {
@@ -132,7 +130,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
 
                 @Override
                 public void onError(Throwable e) {
-
+                    Log.e(TAG, e.getMessage());
                 }
 
                 @Override
@@ -143,11 +141,6 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
         } else {
             initViews();
         }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
     }
 
     private boolean isNetworkAvailable() {
@@ -168,7 +161,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
                 .fetchPolicy(RefreshPolicy.REFRESH_ON_EVERY_START)
                 .deviceId(androidId)
                 .build();
-        appLaunchUser = new AppLaunchUser.Builder()
+        AppLaunchUser appLaunchUser = new AppLaunchUser.Builder()
                 .userId(userId)
                 .custom(AppCommons.FIELD_SUBSCRIPTION, getSubscriptionStatus())
                 .build();
@@ -183,7 +176,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
         appBarLayout = findViewById(R.id.appBar);
         toolbar = appBarLayout.findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(Color.BLACK);
-        toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
+        toolbar.setBackgroundColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
@@ -250,9 +243,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
     @Override
     public void onSuccess(AppLaunchResponse appLaunchResponse) {
         Log.i(TAG, appLaunchResponse.toString());
-        ThemeUtils.getThemeFeature(this);
         newsFeedPublishSubject.onNext(true);
-
     }
 
     @Override

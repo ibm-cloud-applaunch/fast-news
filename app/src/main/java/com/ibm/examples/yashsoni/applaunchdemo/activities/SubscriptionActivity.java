@@ -9,14 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import com.ibm.examples.yashsoni.applaunchdemo.R;
 import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.ThemeUtils;
-import com.ibm.mobile.applaunch.android.api.AppLaunch;
-import com.ibm.mobile.applaunch.android.api.AppLaunchException;
 
 public class SubscriptionActivity extends AppCompatActivity {
 
@@ -30,25 +25,9 @@ public class SubscriptionActivity extends AppCompatActivity {
         AppBarLayout appBarLayout = findViewById(R.id.appBar);
         Toolbar toolbar = appBarLayout.findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(Color.BLACK);
-        toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
+        toolbar.setBackgroundColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));
-
-        LinearLayout llPlan1 = findViewById(R.id.ll_subs_plan_399);
-        LinearLayout llPlan2 = findViewById(R.id.ll_subs_plan_999);
-        llPlan2.setVisibility(View.GONE);
-
-        try {
-            boolean showAnnualPlan = Boolean.valueOf(AppLaunch.getInstance().getPropertyOfFeature("_chbrv44jb", "_hk2frf8vs"));
-            if (showAnnualPlan) {
-                llPlan2.setVisibility(View.VISIBLE);
-            } else {
-                llPlan2.setVisibility(View.GONE);
-            }
-        } catch (AppLaunchException e) {
-            e.printStackTrace();
-        }
-
     }
 
     @Override

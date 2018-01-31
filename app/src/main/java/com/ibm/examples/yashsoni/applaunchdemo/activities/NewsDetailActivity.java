@@ -17,8 +17,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.ibm.examples.yashsoni.applaunchdemo.R;
 import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.ThemeUtils;
 import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
+import com.ibm.mobile.applaunch.android.api.AppLaunch;
+import com.ibm.mobile.applaunch.android.api.AppLaunchException;
 
 public class NewsDetailActivity extends AppCompatActivity {
 
@@ -30,6 +31,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     private TextView tvDesc;
     private TextView tvAuthor;
     private ImageView ivNewsImage;
+    private ImageView ivShare;
     private LinearLayout llMediaControls;
 
     @Override
@@ -45,14 +47,11 @@ public class NewsDetailActivity extends AppCompatActivity {
         appBarLayout = findViewById(R.id.appBar);
         toolbar = appBarLayout.findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(Color.BLACK);
-        toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
+        toolbar.setBackgroundColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
         tvTitle = findViewById(R.id.tv_news_detail_title);
-        View view = findViewById(R.id.rl_news_details);
-        view.setBackgroundColor(ThemeUtils.getLightBackgroundColor(this));
-
         ivNewsImage = findViewById(R.id.iv_news_detail_image);
         if(feedModel.imageUrl != null && !feedModel.imageUrl.isEmpty()) {
             Glide.with(this)
@@ -76,6 +75,29 @@ public class NewsDetailActivity extends AppCompatActivity {
                         ? "Anonymous"
                         : feedModel.author);
         tvAuthor.setText(author);
+
+        ivShare = findViewById(R.id.iv_share_news);
+        ivShare.setVisibility(View.GONE);
+
+        try {
+            boolean enableShareIcon = Boolean.valueOf(AppLaunch.getInstance().getPropertyOfFeature("_mb1k9jf3n", "_o9d8tyg7h"));
+            if (enableShareIcon) {
+                ivShare.setVisibility(View.VISIBLE);
+                ivShare.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                        sharingIntent.setType("text/plain");
+                        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, feedModel.title);
+                        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, feedModel.desc);
+                        startActivity(Intent.createChooser(sharingIntent, "Share this news with"));
+                    }
+                });
+            }
+        } catch (AppLaunchException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
