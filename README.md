@@ -1,4 +1,4 @@
-# App Launch Concepts and Examples - FAST NEWS
+x# App Launch Concepts and Examples - FAST NEWS
 
 ## Overview
 App Launch Service is an IBM Cloud Developer service that helps you control your application features. As a developer, you will need to be familiar with the concepts to best exploit the capability. In this document, you will learn the building blocks of the service and how each feature in the service will help solve your day-to-day problems using a simple news app.
