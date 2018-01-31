@@ -65,6 +65,9 @@ AppLaunch.getInstance().displayInAppMessages(NewsFeedActivity.this);
  ```
 
 That's it - the app will load the In-app message during app initialization.
+
+### Metrics
+A hidden gem inside App Launch Service is collecting metrics. App Launch Service allows extensive support to embed metric collection hooks, across all the concepts. These metrics will help you evaluate results of A/B testing, Feature performance, etc.
  
 ### Learn More
 
