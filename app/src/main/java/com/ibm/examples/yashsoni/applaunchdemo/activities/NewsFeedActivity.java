@@ -160,7 +160,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
     private void initAppLaunchSDK() {
         // Initialize the SDK
         String androidId = Settings.Secure.getString(getContentResolver(),
-                Settings.Secure.ANDROID_ID) + "_" + userId;
+                Settings.Secure.ANDROID_ID) + "_" + userId.toLowerCase();
 
         AppLaunchConfig appLaunchConfig = new AppLaunchConfig.Builder()
                 .eventFlushInterval(10)
@@ -169,7 +169,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
                 .deviceId(androidId)
                 .build();
         appLaunchUser = new AppLaunchUser.Builder()
-                .userId(userId)
+                .userId(userId.toLowerCase())
                 .custom(AppCommons.FIELD_SUBSCRIPTION, getSubscriptionStatus())
                 .build();
         AppLaunch.getInstance().init(getApplication(), ICRegion.US_SOUTH, AppLaunchConstants.appGuid, AppLaunchConstants.clientSecret, appLaunchConfig, appLaunchUser, listener);
