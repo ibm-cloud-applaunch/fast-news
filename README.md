@@ -15,7 +15,7 @@ It's a news retrieval app. It has following features -
 - Subscribed users can listen to audio articles. For others it shows a subscription plan to avail the feature.
 
 ### Concept 4 - App Customisation by audiences
-This is perhaps the most advanced and the most powerful feature that App Launch Service supports. Take Theme feature, for example, if you would like to create two audiences, subscribed Android users and unsubscribed Android users and tailor app customisation for each audience then user experience can be customised for different types of users.
+This is perhaps the most advanced and the most powerful feature that App Launch Service supports. Take Theme feature, for example, if you would like to create two audiences, subscribed users and unsubscribed users and tailor app customisation for each audience then user experience can be customised for different types of users.
 
  - **Feature** - A feature is equivalent to a Java class where you define class members. 
  - Let's create two features
@@ -27,30 +27,28 @@ This is perhaps the most advanced and the most powerful feature that App Launch 
          - property1 - lightColor
          - property2 - darkColor
 
- - **Audience** - Earlier we had a single audience, called ThemeSegment. We will change this to include two separate audiences, AndroidSubscribedThemeSegment and AndroidUnsubscribedThemeSegment.
-	 - 	Let's define an audience called, **AndroidSubscribedThemeSegment** 
+ - **Audience** - Earlier we had a single audience, called ThemeSegment. We will change this to include two separate audiences, SubscribedThemeSegment and UnsubscribedThemeSegment.
+	 - 	Let's define an audience called, **SubscribedThemeSegment**
 	 - Attributes :
-	 	- platforms - Android
 		- subscription - true
-	 - 	Let's define another audience called, **AndroidUnsubscribedThemeSegment** 
+	 - 	Let's define another audience called, **UnsubscribedThemeSegment**
 	 - Attributes :
-	 	- platforms - Android
 		- subscription - false
  - Engagement - As defined in Concept 1 an engagement instantiates a feature by setting values. In this case, we will define two engagements.
-	 - Create an Engagement, called - **AndroidThemeBlueEngagement**
+	 - Create an Engagement, called - **ThemeBlueEngagement**
 		 - Initialize ThemeBlue feature with,
 			 - lightColor = "#ADD8E6"
 			 - darkColor = "#00008B"
 		 - Initialize Audience,
-			 - Audience="**AndroidSubscribedThemeSegment**"
-	 - Create a second engagement, called **AndroidThemeYellowEngagement**
+			 - Audience="**SubscribedThemeSegment**"
+	 - Create a second engagement, called **ThemeYellowEngagement**
 		 - Initialize ThemeYellow feature with,
 			 - lightColor = "#FFFF99"
 			 - darkColor = "#CCCC00"
 		 - Initialize Audience,
-			 - Audience="**AndroidUnsubscribedThemeSegment**"
+			 - Audience="**UnsubscribedThemeSegment**"
 			 
-**Note** - you may create variants within each engagement, for example, within AndroidThemeYellowEngagement you may apply **Concept 3**.		 
+**Note** - you may create variants within each engagement, for example, within ThemeYellowEngagement you may apply **Concept 3**.
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
