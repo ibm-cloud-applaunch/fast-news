@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 
 public class AppCommons {
-    public static final String[] users = new String[]{"Yash", "Surbhi"};
-    public static final Boolean[] userSubscription = new Boolean[]{true, false};
+    public static final String[] users = new String[]{"Yash", "Surbhi", "Geet"};
+    public static final Boolean[] userSubscription = new Boolean[]{true, false, false};
     public static final String NEWS_FEED_DETAILS = "news_feed_details";
     public static final String LOGGED_IN_USER = "logged_in_user";
     public static final String FIELD_SUBSCRIPTION = "subscription";
@@ -104,5 +104,23 @@ public class AppCommons {
             e.printStackTrace();
             return getDataList();
         }
+    }
+
+    public static boolean isValidUser(String userId) {
+        for (String user : users) {
+            if (user.equalsIgnoreCase(userId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isSubscribedUser(String userId){
+        for(int i=0; i<users.length; i++){
+            if(users[i].equalsIgnoreCase(userId)){
+                return userSubscription[i];
+            }
+        }
+        return false;
     }
 }
