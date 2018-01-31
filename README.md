@@ -22,7 +22,7 @@ Let's say you would want to show `share` button to subscribed users. In the App 
 	 - Define properties in this feature
 		 - property - enableShare
 
- - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. Let's say you want this feature for all Android users then 
+ - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. Let's say you want this feature for all subscribed Android users then 
 	 - Let's define an audience called, **ShareSegment** 
 	 - Attributes :
 	 	- platforms - Android
