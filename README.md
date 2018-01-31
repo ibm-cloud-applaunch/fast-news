@@ -49,7 +49,8 @@ This is perhaps the most advanced and the most powerful feature that App Launch 
 			 - darkColor = "#CCCC00"
 		 - Initialize Audience,
 			 - Audience="**AndroidUnsubscribedThemeSegment**"
-Note - you may create variants within each engagement, for example, within AndroidThemeYellowEngagement you may apply **Concept 3**.		 
+			 
+**Note** - you may create variants within each engagement, for example, within AndroidThemeYellowEngagement you may apply **Concept 3**.		 
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
