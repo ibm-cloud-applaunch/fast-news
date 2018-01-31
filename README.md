@@ -77,6 +77,9 @@ String lightColor = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_
 **Note** : Get the featureCode and propertyCode from the JSON file after downloading the feature from App Launch Console.
 
 That's it - the app will load the Feature parameters during app initialization.
+
+### Metrics
+A hidden gem inside App Launch Service is collecting metrics. App Launch Service allows extensive support to embed metric collection hooks, across all the concepts. These metrics will help you evaluate results of A/B testing, Feature performance, etc.
  
 ### Learn More
 
