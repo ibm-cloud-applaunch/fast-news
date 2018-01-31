@@ -1,7 +1,18 @@
 # App Launch Concepts and Examples - FAST NEWS
 
-## Overview
-App Launch Service is an IBM Cloud Developer service that helps you control your application features. As a developer, you will need to be familiar with the concepts to best exploit the capability. In this document, you will learn the building blocks of the service and how each feature in the service will help solve your day-to-day problems using a simple news app.
+## Overview 
+
+### App Launch
+App Launch Service is an IBM Cloud Developer service that helps you control your application features. As a developer, you will need to be familiar with the concepts to best exploit the capability. In this document, you will learn the building blocks of the service and how each feature in the service will help solve your day-to-day problems using a simple news app - FAST NEWS.
+
+### FAST NEWS
+It's a news retrieval app. It has following features -
+- Users login by giving UserId. Currently, app has three users - Yash, Surbhi and Charan. 
+- There is a `subscription` boolean attribute associated with each user. For Yash `subscription` is `true`, and for other two users, it's `false`.
+- After login, user can see a list of news articles. These are fetched from NewsAPI.org
+- Click on an article to read about it.
+- Subscribed users can share that article.
+- Subscribed users can listen to audio articles. For others it shows a subscription plan to avail the feature.
 
 ### Concept 1 - Remote App Customisation
 A most common use case is where an app developer would want to change app background, a button text or certain widget placement in the app once after the app is published to the Appstore. Another Appstore publish might be an overkill, hence developers would prefer an over-the-air update. This gives developers a much-needed flexibility to manipulate app behavior.
@@ -11,16 +22,25 @@ Let's say you would want to change the app's background. In the App Launch servi
  - **Feature** - A feature is equivalent to a Java class where you define class members. 
 	 - Let's call this feature - **ThemeBlue**
 	 - Define properties in this feature
-		 - property  - backgroundColor
+		 - property1  - lightColor
+		 - property2 - darkColor
+
+![Create feature](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/create_feature.gif)
+
  - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. Let's say you want this feature for all Android users then 
 	 - Let's define an audience called, **ThemeSegment** 
 	 - Set its value to 'AllAndroidUsers'
+
+![Create audience](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/create_audience.gif)
+
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences. For our ThemeBlue feature, we will,
 	 - Create an Engagement, called - **ThemeBlueEngagement**
 		 - Initialize ThemeBlue feature with,
 			 - backgroundColor = "#0000FF"
 		 - Initialize Audience,
 			 - Audience="ThemeSegment"
+
+![Create engagement](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/create_engagement.gif)			 
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
@@ -47,15 +67,13 @@ AppLaunch.getInstance().init(getApplication(), ICRegion.US_SOUTH, AppLaunchConst
 ```
 
 ##### 4. Invoke SDK APIs
-get feature API in `ThemeUtils` class in `getThemeFeature` method,
+
  ```
-String darkColor = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_48836r1x5", propertyCode: "_n7ic7lt1n");
-String lightColor = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_48836r1x5", propertyCode: "_3y6nuefy7");
+String darkColor = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_r0m5vfc81", propertyCode: "_74lwhwe0l");
+String lightColor = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_r0m5vfc81", propertyCode: "_39qu6dahb");
  ```
-and called this method in `NewsFeedActivity` class in `onSuccess` method,
- ```
- ThemeUtils.getThemeFeature(this);
- ```
+
+**Note** : Get the featureCode and propertyCode from the JSON file after downloading the feature from App Launch Console.
 
 That's it - the app will load the Feature parameters during app initialization.
  
