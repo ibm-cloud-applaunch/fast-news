@@ -16,7 +16,7 @@ It's a news retrieval app. It has following features -
 
 ### Concept 5 - Device based Content Delivery
 One important use case is where an app developer would want to customise app based on device screen size, OS, etc.
-Let's sat FAST NEWS has revamped their app according to the recent Android OS Oreo and they conduct a survey to ask people if they like the new version of app or not.
+Let's say FAST NEWS has revamped their app according to the recent Android OS Oreo and they conduct a survey to ask people if they like the new version of app or not.
 
  - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. Let's say you want this feature for all Oreo users then
 	 - Let's define an audience called, **SurveySegment**
