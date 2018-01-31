@@ -36,9 +36,10 @@ Let's say you would want to change the app's background. In the App Launch servi
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences. For our ThemeBlue feature, we will,
 	 - Create an Engagement, called - **ThemeBlueEngagement**
 		 - Initialize ThemeBlue feature with,
-			 - backgroundColor = "#0000FF"
+			 - lightColor = "#ADD8E6"
+			 - darkColor = "#00008B"
 		 - Initialize Audience,
-			 - Audience="ThemeSegment"
+			 - Audience = "ThemeSegment"
 
 ![Create engagement](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/create_engagement.gif)			 
 
