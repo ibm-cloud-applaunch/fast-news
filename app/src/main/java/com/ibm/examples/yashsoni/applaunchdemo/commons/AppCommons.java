@@ -1,5 +1,7 @@
 package com.ibm.examples.yashsoni.applaunchdemo.commons;
 
+import android.os.Build;
+
 import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
 
 import org.json.JSONArray;
@@ -13,13 +15,21 @@ import java.util.ArrayList;
  */
 
 public class AppCommons {
-    public static final String[] users = new String[]{"Yash", "Surbhi"};
-    public static final Boolean[] userSubscription = new Boolean[]{true, false};
+//    users and their subscription status
+    private static final String[] users = new String[]{"user1", "user2", "user3"};
+    private static final Boolean[] userSubscription = new Boolean[]{true, false, false};
+
+//    Local cache helper variables
     public static final String NEWS_FEED_DETAILS = "news_feed_details";
     public static final String LOGGED_IN_USER = "logged_in_user";
-    public static final String FIELD_SUBSCRIPTION = "subscription";
+
+//    News API
     private static final String API_KEY_NEWS_FEED = "57e52756282748ccb0f6699e02219858";
     public static final String URL_FOR_NEWS_FEED = "https://newsapi.org/v2/top-headlines?sources=the-times-of-india&apiKey=" + API_KEY_NEWS_FEED;
+
+//    Fields for registration
+    public static final String FIELD_OS_VERSION = "osVersion";
+    public static final String FIELD_IS_SUBSCRIBED = "isSubscribed";
 
 
     private static ArrayList<String> title = new ArrayList<>();
@@ -103,6 +113,43 @@ public class AppCommons {
         } catch (JSONException e) {
             e.printStackTrace();
             return getDataList();
+        }
+    }
+
+    public static boolean isValidUser(String userId) {
+        for (String user : users) {
+            if (user.equalsIgnoreCase(userId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isSubscribedUser(String userId){
+        for(int i=0; i<users.length; i++){
+            if(users[i].equalsIgnoreCase(userId)){
+                return userSubscription[i];
+            }
+        }
+        return false;
+    }
+
+    public static String getDeviceOSVersion() {
+        int versionCode = Build.VERSION.SDK_INT;
+        switch (versionCode){
+            case 21:
+            case 22:
+                return "LOLLIPOP";
+            case 23:
+                return "MARSHMALLOW";
+            case 24:
+            case 25:
+                return "NOUGAT";
+            case 26:
+            case 27:
+                return "OREO";
+            default:
+                return "LOLLIPOP";
         }
     }
 }
