@@ -7,8 +7,8 @@ App Launch Service is an IBM Cloud Developer service that helps you control your
 
 ### FAST NEWS
 It's a news retrieval app. It has following features -
-- Users login by giving UserId. Currently, app has three users - Yash, Surbhi and Charan. 
-- There is a `subscription` boolean attribute associated with each user. For Yash `subscription` is `true`, and for other two users, it's `false`.
+- Users login by giving UserId. Currently, app has three users - user1, user2 and user3.
+- There is a `isSubscribed` boolean attribute associated with each user. For Yash `isSubscribed` is `true`, and for other two users, it's `false`.
 - After login, user can see a list of news articles. These are fetched from NewsAPI.org
 - Click on an article to read about it.
 - Subscribed users can share that article.
@@ -17,11 +17,12 @@ It's a news retrieval app. It has following features -
 ### Concept 3 - Vary App Customisation by percentage of Users
 Often Developers would want to create multiple variants of Feature properties and apply them to a different percentage of users. For example, let's say we want to show different subscription plans to unsubscribed users. Fifty percentage of users should see one plan and the remaining fifty should see another one. The idea is to perform an A/B test on users to arrive at the more suitable question.
 
- - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. We want this in-app message to be shown to all unsubscribed Android users then 
+ - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. We want this in-app message to be shown to all unsubscribed users then
 	 - Let's define an audience called, **InAppSegment** 
 	 - Attributes :
-	 	- platforms - Android
-		- subscription - false
+		- isSubscribed - false
+
+![Create audience](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/a-b-test/images/create_audience.gif)
 
  - **Engagement** - Engagement allows you to create multiple Inapp instances (variations) by setting a percentage for each instance. For example,
 	 - Variant 1 (50%)
@@ -46,7 +47,7 @@ AppLaunchConfig appLaunchConfig = new AppLaunchConfig.Builder().eventFlushInterv
 ##### 2. Build User Object
 
 ```
-AppLaunchUser appLaunchUser = new AppLaunchUser.Builder().userId(userId).custom(AppCommons.FIELD_SUBSCRIPTION, isSubscribed())
+AppLaunchUser appLaunchUser = new AppLaunchUser.Builder().userId(userId).custom(AppCommons.FIELD_IS_SUBSCRIBED, isSubscribed())
 .build();
 ```
 - `userId` : The user to be registered
