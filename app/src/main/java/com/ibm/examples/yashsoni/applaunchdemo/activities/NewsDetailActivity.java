@@ -44,7 +44,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     private void initViews() {
         appBarLayout = findViewById(R.id.appBar);
         toolbar = appBarLayout.findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(Color.BLACK);
+        toolbar.setTitleTextColor(ThemeUtils.getToolbarTextColor(this));
         toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));

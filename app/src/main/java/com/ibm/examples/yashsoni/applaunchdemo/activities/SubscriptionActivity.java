@@ -26,7 +26,7 @@ public class SubscriptionActivity extends AppCompatActivity {
 
         AppBarLayout appBarLayout = findViewById(R.id.appBar);
         Toolbar toolbar = appBarLayout.findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(Color.BLACK);
+        toolbar.setTitleTextColor(ThemeUtils.getToolbarTextColor(this));
         toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));

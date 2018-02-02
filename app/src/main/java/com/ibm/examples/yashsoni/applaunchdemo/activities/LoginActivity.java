@@ -53,8 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public boolean isValidUser() {
         String userId = etUserId.getText().toString().trim();
-        return !userId.isEmpty() &&
-                (userId.equalsIgnoreCase(AppCommons.users[0]) || userId.equalsIgnoreCase(AppCommons.users[1]));
+        return AppCommons.isValidUser(userId);
     }
 
 }
