@@ -7,8 +7,8 @@ App Launch Service is an IBM Cloud Developer service that helps you control your
 
 ### FAST NEWS
 It's a news retrieval app. It has following features -
-- Users login by giving UserId. Currently, app has three users - Yash, Surbhi and Charan. 
-- There is a `subscription` boolean attribute associated with each user. For Yash `subscription` is `true`, and for other two users, it's `false`.
+- Users login by giving UserId. Currently, app has three users - user1, user2 and user3.
+- There is a `subscription` boolean attribute associated with each user. For user1 `subscription` is `true`, and for other two users, it's `false`.
 - After login, user can see a list of news articles. These are fetched from NewsAPI.org
 - Click on an article to read about it.
 - Subscribed users can share that article.
@@ -22,8 +22,9 @@ Let's say you would want to change the app's background. In the App Launch servi
  - **Feature** - A feature is equivalent to a Java class where you define class members. 
 	 - Let's call this feature - **ThemeBlue**
 	 - Define properties in this feature
-		 - property1  - lightColor
-		 - property2 - darkColor
+		 - property1  - toolbarTextColor
+		 - property2  - toolbarBackgroundColor
+		 - property3  - lightBackgroundColor
 
 ![Create feature](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/create_feature.gif)
 
@@ -36,8 +37,9 @@ Let's say you would want to change the app's background. In the App Launch servi
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences. For our ThemeBlue feature, we will,
 	 - Create an Engagement, called - **ThemeBlueEngagement**
 		 - Initialize ThemeBlue feature with,
-			 - lightColor = "#ADD8E6"
-			 - darkColor = "#00008B"
+			 - toolbarTextColor = "#484848"
+			 - toolbarBackgroundColor = "#4fc3f7"
+			 - lightBackgroundColor = "#e1f5fe"
 		 - Initialize Audience,
 			 - Audience = "ThemeSegment"
 
