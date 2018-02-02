@@ -8,7 +8,7 @@ App Launch Service is an IBM Cloud Developer service that helps you control your
 ### FAST NEWS
 It's a news retrieval app. It has following features -
 - Users login by giving UserId. Currently, app has three users - user1, user2 and user3.
-- There is a `subscription` boolean attribute associated with each user. For user1 `subscription` is `true`, and for other two users, it's `false`.
+- There is a `isSubscribed` boolean attribute associated with each user. For user1 `isSubscribed` is `true`, and for other two users, it's `false`.
 - After login, user can see a list of news articles. These are fetched from NewsAPI.org
 - Click on an article to read about it.
 - Subscribed users can share that article.
@@ -57,7 +57,7 @@ AppLaunchConfig appLaunchConfig = new AppLaunchConfig.Builder().eventFlushInterv
 ##### 2. Build User Object
 
 ```
-AppLaunchUser appLaunchUser = new AppLaunchUser.Builder().userId(userId).custom(AppCommons.FIELD_SUBSCRIPTION, isSubscribed())
+AppLaunchUser appLaunchUser = new AppLaunchUser.Builder().userId(userId).custom(AppCommons.FIELD_IS_SUBSCRIBED, isSubscribed())
 .build();
 ```
 - `userId` : The user to be registered
@@ -72,8 +72,9 @@ AppLaunch.getInstance().init(getApplication(), ICRegion.US_SOUTH, AppLaunchConst
 ##### 4. Invoke SDK APIs
 
  ```
-String darkColor = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_r0m5vfc81", propertyCode: "_74lwhwe0l");
-String lightColor = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_r0m5vfc81", propertyCode: "_39qu6dahb");
+String darkColor = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_eb2fbdn3u", propertyCode: "_ky6yn2pzh");
+String lightColor = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_eb2fbdn3u", propertyCode: "_pb0l0g8y0");
+String textColorForDarkBackground = AppLaunch.getInstance().getPropertyOfFeature(featureCode: "_eb2fbdn3u", propertyCode: "_nvf28igtq");
  ```
 
 **Note** : Get the featureCode and propertyCode from the JSON file after downloading the feature from App Launch Console.
