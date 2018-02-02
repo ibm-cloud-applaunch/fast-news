@@ -38,6 +38,8 @@ Let's say you would want to show `share` button to subscribed users. In the App 
 		 - Initialize Audience,
 			 - Audience = "ShareSegment"		 
 
+![Create engagement](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/toggle-app-feature/images/create_engagement.gif)
+
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
 ##### 1. Build Configuration Object
