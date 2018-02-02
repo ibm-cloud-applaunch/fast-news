@@ -33,6 +33,9 @@ Often Developers would want to create multiple variants of Feature properties an
 		 - popUpText - “Subscribe for 12 months at 999/-”
 		 - popUpYes  - Yes
 		 - popUpNo - “No”
+
+![Create engagement](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/a-b-test/images/create_engagement.gif)
+
  - Code - No change in the code since the App Launch Service handles the audience segmentation.	 
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
