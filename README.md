@@ -29,6 +29,8 @@ Let's say you would want to show `share` button to subscribed users. In the App 
 	 - Attributes :
 		- subscription - true
 
+![Create audience](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/toggle-app-feature/images/create_audience.gif)
+
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences. For our ShareNews feature, we will,
 	 - Create an Engagement, called - **ShareNewsEngagement**
 		 - Initialize ShareNews feature with,
