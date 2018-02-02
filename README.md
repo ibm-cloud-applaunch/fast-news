@@ -7,8 +7,8 @@ App Launch Service is an IBM Cloud Developer service that helps you control your
 
 ### FAST NEWS
 It's a news retrieval app. It has following features -
-- Users login by giving UserId. Currently, app has three users - Yash, Surbhi and Charan. 
-- There is a `subscription` boolean attribute associated with each user. For Yash `subscription` is `true`, and for other two users, it's `false`.
+- Users login by giving UserId. Currently, app has three users - user1, user2 and user3.
+- There is a `isSubscribed` boolean attribute associated with each user. For user1 `isSubscribed` is `true`, and for other two users, it's `false`.
 - After login, user can see a list of news articles. These are fetched from NewsAPI.org
 - Click on an article to read about it.
 - Subscribed users can share that article.
@@ -27,13 +27,18 @@ This is perhaps the most advanced and the most powerful feature that App Launch 
          - property1 - lightColor
          - property2 - darkColor
 
+![Create feature](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/audience-based-content-delivery/images/create_feature.gif)
+
  - **Audience** - Earlier we had a single audience, called ThemeSegment. We will change this to include two separate audiences, SubscribedThemeSegment and UnsubscribedThemeSegment.
 	 - 	Let's define an audience called, **SubscribedThemeSegment**
 	 - Attributes :
-		- subscription - true
+		- isSubscribed - true
 	 - 	Let's define another audience called, **UnsubscribedThemeSegment**
 	 - Attributes :
-		- subscription - false
+		- isSubscribed - false
+
+![Create audience](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/audience-based-content-delivery/images/create_audience.gif)
+
  - Engagement - As defined in Concept 1 an engagement instantiates a feature by setting values. In this case, we will define two engagements.
 	 - Create an Engagement, called - **ThemeBlueEngagement**
 		 - Initialize ThemeBlue feature with,
@@ -47,7 +52,9 @@ This is perhaps the most advanced and the most powerful feature that App Launch 
 			 - darkColor = "#CCCC00"
 		 - Initialize Audience,
 			 - Audience="**UnsubscribedThemeSegment**"
-			 
+
+![Create engagement](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/audience-based-content-delivery/images/create_engagement.gif)
+
 **Note** - you may create variants within each engagement, for example, within ThemeYellowEngagement you may apply **Concept 3**.
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
@@ -62,7 +69,7 @@ AppLaunchConfig appLaunchConfig = new AppLaunchConfig.Builder().eventFlushInterv
 ##### 2. Build User Object
 
 ```
-AppLaunchUser appLaunchUser = new AppLaunchUser.Builder().userId(userId).custom(AppCommons.FIELD_SUBSCRIPTION, isSubscribed())
+AppLaunchUser appLaunchUser = new AppLaunchUser.Builder().userId(userId).custom(AppCommons.FIELD_IS_SUBSCRIBED, isSubscribed())
 .build();
 ```
 - `userId` : The user to be registered
