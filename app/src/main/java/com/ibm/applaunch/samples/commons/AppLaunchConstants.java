@@ -1,4 +1,4 @@
-package com.ibm.examples.yashsoni.applaunchdemo.commons;
+package com.ibm.applaunch.samples.commons;
 
 /**
  * Created by yashsoni on 19/01/18.
