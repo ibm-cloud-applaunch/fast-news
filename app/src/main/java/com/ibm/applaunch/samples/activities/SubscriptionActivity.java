@@ -1,4 +1,4 @@
-package com.ibm.examples.yashsoni.applaunchdemo.activities;
+package com.ibm.applaunch.samples.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ibm.examples.yashsoni.applaunchdemo.R;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
+import com.ibm.applaunch.samples.commons.AppCommons;
 
 public class SubscriptionActivity extends AppCompatActivity {
 

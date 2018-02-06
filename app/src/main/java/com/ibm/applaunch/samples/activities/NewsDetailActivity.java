@@ -1,4 +1,4 @@
-package com.ibm.examples.yashsoni.applaunchdemo.activities;
+package com.ibm.applaunch.samples.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.ibm.examples.yashsoni.applaunchdemo.R;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
-import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
+import com.ibm.applaunch.samples.commons.AppCommons;
+import com.ibm.applaunch.samples.models.NewsFeedModel;
 import com.ibm.mobile.applaunch.android.api.AppLaunch;
 import com.ibm.mobile.applaunch.android.api.AppLaunchException;
 
@@ -80,7 +80,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         ivShare.setVisibility(View.GONE);
 
         try {
-            boolean enableShareIcon = Boolean.valueOf(AppLaunch.getInstance().getPropertyOfFeature("_mb1k9jf3n", "_o9d8tyg7h"));
+            boolean enableShareIcon = Boolean.valueOf(AppLaunch.getInstance().getPropertyOfFeature("_8cfi0fymn", "_bmggkv9qj"));
             if (enableShareIcon) {
                 ivShare.setVisibility(View.VISIBLE);
                 ivShare.setOnClickListener(new View.OnClickListener() {

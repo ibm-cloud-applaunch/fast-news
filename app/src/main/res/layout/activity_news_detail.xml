@@ -4,7 +4,7 @@
     android:id="@+id/rl_news_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ibm.examples.yashsoni.applaunchdemo.activities.NewsDetailActivity">
+    tools:context="com.ibm.applaunch.samples.activities.NewsDetailActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
