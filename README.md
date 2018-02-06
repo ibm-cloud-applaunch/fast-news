@@ -69,7 +69,7 @@ AppLaunch.getInstance().displayInAppMessages(NewsFeedActivity.this);
 That's it - the app will load the In-app message during app initialization.
 
 ### FAST NEWS Screenshots
-![FAST NEWS Concept5 ](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/concept5-screenshot.png)
+![FAST NEWS Concept5 ](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/device-based-content-delivery/images/concept5-screenshot.png)
 
 ### Learn More
 
