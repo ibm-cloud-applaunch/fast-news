@@ -73,6 +73,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
 
         sharedPref = this.getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
         userId = sharedPref.getString(AppCommons.LOGGED_IN_USER, "");
+        userId = userId.toLowerCase();
 
         if(isNetworkAvailable()) {
             initAppLaunchSDK();
@@ -144,11 +145,6 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
         }
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-    }
-
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -169,13 +165,10 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
                 .build();
         appLaunchUser = new AppLaunchUser.Builder()
                 .userId(userId)
-                .custom(AppCommons.FIELD_SUBSCRIPTION, getSubscriptionStatus())
+                .custom(AppCommons.FIELD_IS_SUBSCRIBED, AppCommons.isSubscribedUser(userId))
+                .custom(AppCommons.FIELD_OS_VERSION, AppCommons.getDeviceOSVersion())
                 .build();
         AppLaunch.getInstance().init(getApplication(), ICRegion.US_SOUTH, AppLaunchConstants.appGuid, AppLaunchConstants.clientSecret, appLaunchConfig, appLaunchUser, listener);
-    }
-
-    private String getSubscriptionStatus() {
-        return String.valueOf(AppCommons.isSubscribedUser(userId));
     }
 
     private void initViews() {
@@ -232,6 +225,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
             startActivity(i);
             finish();
 
+            AppLaunch.getInstance().destroy(this);
             return true;
         }
 
