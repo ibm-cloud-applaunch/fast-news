@@ -23,6 +23,8 @@ Let's say FAST NEWS has revamped their app according to the recent Android OS Or
 	 - Attributes :
 	 	- OS Version - 8.1.0
 
+![Create audience](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/device-based-content-delivery/images/create_audience.gif)
+
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences.
 	 - Create an Engagement, called - **SurveyEngagement**
 		 - Initialize In-app message with,
@@ -31,6 +33,8 @@ Let's say FAST NEWS has revamped their app according to the recent Android OS Or
 			 - popUpNo = "Nah"
 		 - Initialize Audience,
 			 - Audience = "SurveySegment"
+
+![Create engagement](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/device-based-content-delivery/images/create_engagement.gif)
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
