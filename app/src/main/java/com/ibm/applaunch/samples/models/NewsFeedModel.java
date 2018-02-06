@@ -1,4 +1,4 @@
-package com.ibm.examples.yashsoni.applaunchdemo.models;
+package com.ibm.applaunch.samples.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

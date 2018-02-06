@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">App Launch Demo</string>
+    <string name="app_name">FAST NEWS</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
+    <string name="prompt_email">User ID</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
@@ -15,7 +15,7 @@
         completions."
     </string>
     <string name="log_out_title">Log Out</string>
-    <string name="subscription">Subscription</string>
+    <string name="subscription">Subscription Plans</string>
     <string name="buy_now">Buy Now</string>
     <string name="subscription1_desc">3 months access to all audio books</string>
     <string name="three_months">3 MONTHS</string>

@@ -1,4 +1,4 @@
-package com.ibm.examples.yashsoni.applaunchdemo.activities;
+package com.ibm.applaunch.samples.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,18 +10,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.ibm.examples.yashsoni.applaunchdemo.R;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.ThemeUtils;
+import com.ibm.applaunch.samples.commons.AppCommons;
 import com.ibm.mobile.applaunch.android.api.AppLaunch;
-import com.ibm.mobile.applaunch.android.api.AppLaunchException;
 
 public class SubscriptionActivity extends AppCompatActivity {
 
     private static final String TAG = SubscriptionActivity.class.getSimpleName();
-
+    private View plan2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,25 +27,18 @@ public class SubscriptionActivity extends AppCompatActivity {
         AppBarLayout appBarLayout = findViewById(R.id.appBar);
         Toolbar toolbar = appBarLayout.findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(Color.BLACK);
-        toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
+        toolbar.setBackgroundColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
-        LinearLayout llPlan1 = findViewById(R.id.ll_subs_plan_399);
-        LinearLayout llPlan2 = findViewById(R.id.ll_subs_plan_999);
-        llPlan2.setVisibility(View.GONE);
-
+        plan2 = findViewById(R.id.ll_subs_plan_999);
         try {
-            boolean showAnnualPlan = Boolean.valueOf(AppLaunch.getInstance().getPropertyOfFeature("_chbrv44jb", "_hk2frf8vs"));
-            if (showAnnualPlan) {
-                llPlan2.setVisibility(View.VISIBLE);
-            } else {
-                llPlan2.setVisibility(View.GONE);
+            if (Boolean.valueOf(AppLaunch.getInstance().getPropertyOfFeature("_d95oramos", "_1lry5um40"))) {
+                plan2.setVisibility(View.VISIBLE);
             }
-        } catch (AppLaunchException e) {
+        } catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     @Override

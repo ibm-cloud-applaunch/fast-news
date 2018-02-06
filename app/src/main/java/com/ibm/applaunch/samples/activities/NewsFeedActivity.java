@@ -1,4 +1,4 @@
-package com.ibm.examples.yashsoni.applaunchdemo.activities;
+package com.ibm.applaunch.samples.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,12 +22,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.ibm.examples.yashsoni.applaunchdemo.R;
-import com.ibm.examples.yashsoni.applaunchdemo.adapters.NewsFeedRecyclerViewAdapter;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.AppLaunchConstants;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.ThemeUtils;
-import com.ibm.examples.yashsoni.applaunchdemo.interfaces.OnItemClickListener;
-import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
+import com.ibm.applaunch.samples.adapters.NewsFeedRecyclerViewAdapter;
+import com.ibm.applaunch.samples.commons.AppCommons;
+import com.ibm.applaunch.samples.commons.AppLaunchConstants;
+import com.ibm.applaunch.samples.interfaces.OnItemClickListener;
+import com.ibm.applaunch.samples.models.NewsFeedModel;
 import com.ibm.mobile.applaunch.android.AppLaunchFailResponse;
 import com.ibm.mobile.applaunch.android.AppLaunchResponse;
 import com.ibm.mobile.applaunch.android.api.AppLaunch;
@@ -74,6 +73,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
 
         sharedPref = this.getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
         userId = sharedPref.getString(AppCommons.LOGGED_IN_USER, "");
+        userId = userId.toLowerCase();
 
         if(isNetworkAvailable()) {
             initAppLaunchSDK();
@@ -145,11 +145,6 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
         }
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-    }
-
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -170,20 +165,17 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
                 .build();
         appLaunchUser = new AppLaunchUser.Builder()
                 .userId(userId)
-                .custom(AppCommons.FIELD_SUBSCRIPTION, getSubscriptionStatus())
+                .custom(AppCommons.FIELD_IS_SUBSCRIBED, AppCommons.isSubscribedUser(userId))
+                .custom(AppCommons.FIELD_OS_VERSION, AppCommons.getDeviceOSVersion())
                 .build();
         AppLaunch.getInstance().init(getApplication(), ICRegion.US_SOUTH, AppLaunchConstants.appGuid, AppLaunchConstants.clientSecret, appLaunchConfig, appLaunchUser, listener);
-    }
-
-    private String getSubscriptionStatus() {
-        return String.valueOf(isSubscribedUser());
     }
 
     private void initViews() {
         appBarLayout = findViewById(R.id.appBar);
         toolbar = appBarLayout.findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(Color.BLACK);
-        toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
+        toolbar.setBackgroundColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
@@ -197,7 +189,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
             public void onItemClick(NewsFeedModel feedModel) {
                 Intent i;
                 if (feedModel.isAudioAvailable) {
-                    if (isSubscribedUser()) {
+                    if (AppCommons.isSubscribedUser(userId)) {
                         i = new Intent(NewsFeedActivity.this, NewsDetailActivity.class);
                         i.putExtra(AppCommons.NEWS_FEED_DETAILS, feedModel);
                     } else {
@@ -212,14 +204,6 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
         });
         adapter.setDataList(AppCommons.getNewsFeed(newsApiResult));
         recyclerView.setAdapter(adapter);
-    }
-
-    private boolean isSubscribedUser() {
-        int index = 0;
-        if (userId.equalsIgnoreCase(AppCommons.users[1])) {
-            index = 1;
-        }
-        return AppCommons.userSubscription[index];
     }
 
     @Override
@@ -241,6 +225,7 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
             startActivity(i);
             finish();
 
+            AppLaunch.getInstance().destroy(this);
             return true;
         }
 
@@ -250,9 +235,8 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
     @Override
     public void onSuccess(AppLaunchResponse appLaunchResponse) {
         Log.i(TAG, appLaunchResponse.toString());
-        ThemeUtils.getThemeFeature(this);
         newsFeedPublishSubject.onNext(true);
-
+        AppLaunch.getInstance().displayInAppMessages(this);
     }
 
     @Override

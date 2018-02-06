@@ -1,16 +1,18 @@
-package com.ibm.examples.yashsoni.applaunchdemo.activities;
+package com.ibm.applaunch.samples.activities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.ibm.examples.yashsoni.applaunchdemo.R;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
+import com.ibm.applaunch.samples.commons.AppCommons;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -46,6 +48,9 @@ public class LoginActivity extends AppCompatActivity {
                     Intent i = new Intent(LoginActivity.this, NewsFeedActivity.class);
                     startActivity(i);
                     LoginActivity.this.finish();
+                } else {
+                    final CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinatorLayout);
+                    Snackbar.make(coordinatorLayout, "Only \'user1\', \'user2\' and \'user3\' are valid.", Snackbar.LENGTH_LONG).show();
                 }
             }
         });
@@ -53,8 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public boolean isValidUser() {
         String userId = etUserId.getText().toString().trim();
-        return !userId.isEmpty() &&
-                (userId.equalsIgnoreCase(AppCommons.users[0]) || userId.equalsIgnoreCase(AppCommons.users[1]));
+        return AppCommons.isValidUser(userId);
     }
 
 }
