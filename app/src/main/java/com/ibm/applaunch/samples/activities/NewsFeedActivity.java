@@ -3,7 +3,6 @@ package com.ibm.applaunch.samples.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -25,6 +24,7 @@ import com.ibm.examples.yashsoni.applaunchdemo.R;
 import com.ibm.applaunch.samples.adapters.NewsFeedRecyclerViewAdapter;
 import com.ibm.applaunch.samples.commons.AppCommons;
 import com.ibm.applaunch.samples.commons.AppLaunchConstants;
+import com.ibm.applaunch.samples.commons.ThemeUtils;
 import com.ibm.applaunch.samples.interfaces.OnItemClickListener;
 import com.ibm.applaunch.samples.models.NewsFeedModel;
 import com.ibm.mobile.applaunch.android.AppLaunchFailResponse;
@@ -174,8 +174,8 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
     private void initViews() {
         appBarLayout = findViewById(R.id.appBar);
         toolbar = appBarLayout.findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(Color.BLACK);
-        toolbar.setBackgroundColor(Color.WHITE);
+        toolbar.setTitleTextColor(ThemeUtils.getToolbarTextColor(this));
+        toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
@@ -235,8 +235,8 @@ public class NewsFeedActivity extends AppCompatActivity implements AppLaunchList
     @Override
     public void onSuccess(AppLaunchResponse appLaunchResponse) {
         Log.i(TAG, appLaunchResponse.toString());
+        ThemeUtils.getThemeFeature(this);
         newsFeedPublishSubject.onNext(true);
-        AppLaunch.getInstance().displayInAppMessages(this);
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.ibm.applaunch.samples.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.ibm.examples.yashsoni.applaunchdemo.R;
 import com.ibm.applaunch.samples.commons.AppCommons;
 import com.ibm.applaunch.samples.models.NewsFeedModel;
+import com.ibm.applaunch.samples.commons.ThemeUtils;
 
 public class NewsDetailActivity extends AppCompatActivity {
 
@@ -43,13 +43,14 @@ public class NewsDetailActivity extends AppCompatActivity {
     private void initViews() {
         appBarLayout = findViewById(R.id.appBar);
         toolbar = appBarLayout.findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(Color.BLACK);
-        toolbar.setBackgroundColor(Color.WHITE);
+        toolbar.setTitleTextColor(ThemeUtils.getToolbarTextColor(this));
+        toolbar.setBackgroundColor(ThemeUtils.getToolbarColor(this));
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
         tvTitle = findViewById(R.id.tv_news_detail_title);
         View view = findViewById(R.id.rl_news_details);
+        view.setBackgroundColor(ThemeUtils.getLightBackgroundColor(this));
 
         ivNewsImage = findViewById(R.id.iv_news_detail_image);
         if(feedModel.imageUrl != null && !feedModel.imageUrl.isEmpty()) {

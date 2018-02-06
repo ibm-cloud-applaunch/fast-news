@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.ibm.examples.yashsoni.applaunchdemo.R;
+import com.ibm.applaunch.samples.commons.ThemeUtils;
 import com.ibm.applaunch.samples.interfaces.OnItemClickListener;
 import com.ibm.applaunch.samples.models.NewsFeedModel;
 
@@ -43,6 +44,7 @@ public class NewsFeedRecyclerViewAdapter extends Adapter<NewsFeedRecyclerViewAda
     public NewsFeedViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.news_feed_list_item, parent, false);
+        itemView.setBackgroundColor(ThemeUtils.getLightBackgroundColor(context));
         return new NewsFeedViewHolder(itemView);
     }
 
