@@ -1,9 +1,8 @@
-package com.ibm.examples.yashsoni.applaunchdemo.activities;
+package com.ibm.applaunch.samples.activities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -22,12 +21,12 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.ibm.examples.yashsoni.applaunchdemo.R;
-import com.ibm.examples.yashsoni.applaunchdemo.adapters.NewsFeedRecyclerViewAdapter;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.AppLaunchConstants;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.ThemeUtils;
-import com.ibm.examples.yashsoni.applaunchdemo.interfaces.OnItemClickListener;
-import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
+import com.ibm.applaunch.samples.adapters.NewsFeedRecyclerViewAdapter;
+import com.ibm.applaunch.samples.commons.AppCommons;
+import com.ibm.applaunch.samples.commons.AppLaunchConstants;
+import com.ibm.applaunch.samples.commons.ThemeUtils;
+import com.ibm.applaunch.samples.interfaces.OnItemClickListener;
+import com.ibm.applaunch.samples.models.NewsFeedModel;
 import com.ibm.mobile.applaunch.android.AppLaunchFailResponse;
 import com.ibm.mobile.applaunch.android.AppLaunchResponse;
 import com.ibm.mobile.applaunch.android.api.AppLaunch;

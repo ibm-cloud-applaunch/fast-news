@@ -1,6 +1,6 @@
-package com.ibm.examples.yashsoni.applaunchdemo.interfaces;
+package com.ibm.applaunch.samples.interfaces;
 
-import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
+import com.ibm.applaunch.samples.models.NewsFeedModel;
 
 /**
  * Created by yashsoni on 22/01/18.

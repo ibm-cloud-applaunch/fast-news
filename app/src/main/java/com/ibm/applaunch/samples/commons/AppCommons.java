@@ -1,8 +1,8 @@
-package com.ibm.examples.yashsoni.applaunchdemo.commons;
+package com.ibm.applaunch.samples.commons;
 
 import android.os.Build;
 
-import com.ibm.examples.yashsoni.applaunchdemo.models.NewsFeedModel;
+import com.ibm.applaunch.samples.models.NewsFeedModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;

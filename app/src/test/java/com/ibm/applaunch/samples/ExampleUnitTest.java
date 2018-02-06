@@ -1,4 +1,4 @@
-package com.ibm.examples.yashsoni.applaunchdemo;
+package com.ibm.applaunch.samples;
 
 import org.junit.Test;
 

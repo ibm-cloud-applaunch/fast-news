@@ -1,4 +1,4 @@
-package com.ibm.examples.yashsoni.applaunchdemo.commons;
+package com.ibm.applaunch.samples.commons;
 
 import android.content.Context;
 import android.content.SharedPreferences;
