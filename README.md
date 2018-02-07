@@ -20,7 +20,7 @@ A most common use case is where an app developer would want to change app backgr
 Let's say you would want to change the app's background. In the App Launch service Console you will configure this app attributes and later in your app you will add logic to implement it and will use the SDK APIs.
 
  - **Feature** - A feature is equivalent to a Java class where you define class members. 
-	 - Let's call this feature - **ThemeBlue**
+	 - Let's call this feature - **ThemeGreen**
 	 - Define properties in this feature
 		 - property1  - toolbarTextColor
 		 - property2  - toolbarBackgroundColor
@@ -35,7 +35,7 @@ Let's say you would want to change the app's background. In the App Launch servi
 ![Create audience](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_audience.gif)
 
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences. For our ThemeBlue feature, we will,
-	 - Create an Engagement, called - **ThemeBlueEngagement**
+	 - Create an Engagement, called - **ThemeGreenEngagement**
 		 - Initialize ThemeBlue feature with,
 			 - toolbarTextColor = "#000000"
 			 - toolbarBackgroundColor = "#9ccc65"
