@@ -22,14 +22,14 @@ Let's say you would want to show `share` button to subscribed users. In the App 
 	 - Define properties in this feature
 		 - property - enableShare
 
-![Create feature](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/toggle-app-feature/images/create_feature.gif)
+![Create feature](https://github.ibm.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/create_feature.gif)
 
  - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. Let's say you want this feature for all subscribed users then
 	 - Let's define an audience called, **ShareSegment** 
 	 - Attributes :
 		- subscription - true
 
-![Create audience](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/toggle-app-feature/images/create_audience.gif)
+![Create audience](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/create_audience.gif)
 
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences. For our ShareNews feature, we will,
 	 - Create an Engagement, called - **ShareNewsEngagement**
@@ -38,7 +38,7 @@ Let's say you would want to show `share` button to subscribed users. In the App 
 		 - Initialize Audience,
 			 - Audience = "ShareSegment"		 
 
-![Create engagement](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/toggle-app-feature/images/create_engagement.gif)
+![Create engagement](https://github.ibm.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/create_engagement.gif)
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
@@ -74,9 +74,13 @@ boolean enableShareIcon = Boolean.valueOf(AppLaunch.getInstance().getPropertyOfF
 
 That's it - the app will load the Feature parameters during app initialization.
 
+### FAST NEWS Screenshots
+![Feature Toggle Screenshots](https://github.ibm.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/FeatureToggle.png)
+
 ### Metrics
 A hidden gem inside App Launch Service is collecting metrics. App Launch Service allows extensive support to embed metric collection hooks, across all the concepts. These metrics will help you evaluate results of A/B testing, Feature performance, etc.
  
+### App
 ### Learn More
 
 * Visit the **[IBM App Launch Docs](https://console-regional.ng.bluemix.net/docs/services/app-launch/index.html#gettingstartedtemplate)**. 
@@ -94,6 +98,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-
-[IBM Mobile](mailto:yashsoni21@in.ibm.com)
