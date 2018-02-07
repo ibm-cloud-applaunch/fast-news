@@ -43,7 +43,7 @@ Let's say you would want to change the app's background. In the App Launch servi
 		 - Initialize Audience,
 			 - Audience = "ThemeSegment"
 
-![Create engagement](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/images/create_engagement.gif)			 
+![Create engagement](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_engagement.gif)			 
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
