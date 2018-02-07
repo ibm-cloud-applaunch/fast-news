@@ -20,7 +20,7 @@ A most common use case is where an app developer would want to change app backgr
 Let's say you would want to change the app's background. In the App Launch service Console you will configure this app attributes and later in your app you will add logic to implement it and will use the SDK APIs.
 
  - **Feature** - A feature is equivalent to a Java class where you define class members. 
-	 - Let's call this feature - **ThemeGreen**
+	 - Let's call this feature - **ThemeBlue**
 	 - Define properties in this feature
 		 - property1  - toolbarTextColor
 		 - property2  - toolbarBackgroundColor
