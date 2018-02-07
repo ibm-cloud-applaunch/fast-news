@@ -26,13 +26,13 @@ Let's say you would want to change the app's background. In the App Launch servi
 		 - property2  - toolbarBackgroundColor
 		 - property3  - lightBackgroundColor
 
-![Create feature](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/create_feature.gif)
+![Create feature](https://github.ibm.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_feature.gif)
 
  - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. Let's say you want this feature for all Android users then 
 	 - Let's define an audience called, **ThemeSegment** 
 	 - Set its value to 'AllAndroidUsers'
 
-![Create audience](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/create_audience.gif)
+![Create audience](https://github.ibm.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_audience.gif)
 
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences. For our ThemeBlue feature, we will,
 	 - Create an Engagement, called - **ThemeBlueEngagement**
@@ -43,7 +43,7 @@ Let's say you would want to change the app's background. In the App Launch servi
 		 - Initialize Audience,
 			 - Audience = "ThemeSegment"
 
-![Create engagement](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/create_engagement.gif)			 
+![Create engagement](https://github.ibm.com/ibm-cloud-applaunch/sample-android-fast-news/images/create_engagement.gif)			 
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
