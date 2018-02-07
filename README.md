@@ -22,7 +22,7 @@ Let's say you would want to show `share` button to subscribed users. In the App 
 	 - Define properties in this feature
 		 - property - enableShare
 
-![Create feature](https://github.ibm.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/create_feature.gif)
+![Create feature](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/create_feature.gif)
 
  - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. Let's say you want this feature for all subscribed users then
 	 - Let's define an audience called, **ShareSegment** 
@@ -38,7 +38,7 @@ Let's say you would want to show `share` button to subscribed users. In the App 
 		 - Initialize Audience,
 			 - Audience = "ShareSegment"		 
 
-![Create engagement](https://github.ibm.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/create_engagement.gif)
+![Create engagement](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/create_engagement.gif)
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
@@ -75,7 +75,7 @@ boolean enableShareIcon = Boolean.valueOf(AppLaunch.getInstance().getPropertyOfF
 That's it - the app will load the Feature parameters during app initialization.
 
 ### FAST NEWS Screenshots
-![Feature Toggle Screenshots](https://github.ibm.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/FeatureToggle.png)
+![Feature Toggle Screenshots](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/toggle-app-feature/images/FeatureToggle.png)
 
 ### Metrics
 A hidden gem inside App Launch Service is collecting metrics. App Launch Service allows extensive support to embed metric collection hooks, across all the concepts. These metrics will help you evaluate results of A/B testing, Feature performance, etc.
