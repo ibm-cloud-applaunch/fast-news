@@ -14,31 +14,26 @@ It's a news retrieval app. It has following features -
 - Subscribed users can share that article.
 - Subscribed users can listen to audio articles. For others it shows a subscription plan to avail the feature.
 
-### Concept 3 - Vary App Customisation by percentage of Users
+### Concept 3 - A/B Test
 Often Developers would want to create multiple variants of Feature properties and apply them to a different percentage of users. For example, let's say we want to show different subscription plans to unsubscribed users. Fifty percentage of users should see one plan and the remaining fifty should see another one. The idea is to perform an A/B test on users to arrive at the more suitable question.
 
+ - **Feature** - A feature is equivalent to a Java class where you define class members.
+	 - Let's call it **SubscriptionPlan** 
+	 - Define properties in this feature:
+		- showPlan - true
+		
+![Create feature](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/a-b-test/images/feature.gif)
+
  - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. We want this in-app message to be shown to all unsubscribed users then
-	 - Let's define an audience called, **InAppSegment** 
+	 - Let's define an audience called, **UnsubscribedUsers** 
 	 - Attributes :
 		- isSubscribed - false
 
-![Create audience](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/a-b-test/images/create_audience.gif)
+![Create audience](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/a-b-test/images/audience.gif)
 
- - **Engagement** - Engagement allows you to create multiple Inapp instances (variations) by setting a percentage for each instance. For example,
-	 - Variant 1 (50%)
-		 - popUpText - “Subscribe for 3 months at 399/-”
-		 - popUpYes  - “Yes”
-		 - popUpNo - “No”
-	 - Variant 2 (50%)
-		 - popUpText - “Subscribe for 12 months at 999/-”
-		 - popUpYes  - Yes
-		 - popUpNo - “No”
+ - **Engagement** - Engagement allows you to create multiple feature instances and deliver them to different percent of users in the audience. We choose to deliver this feature's variant-1 to 50% of the "Unsubscribed User" audience and variant 2 will be targetting the other half.
 
-![Create engagement](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/a-b-test/images/create_engagement.gif)
-
- - Code - No change in the code since the App Launch Service handles the audience segmentation.	 
-
-Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
+![Create engagement](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/a-b-test/images/engagement.gif)
 
 ##### 1. Build Configuration Object
 
@@ -65,10 +60,18 @@ AppLaunch.getInstance().init(getApplication(), ICRegion.US_SOUTH, AppLaunchConst
 ##### 4. Invoke SDK APIs
 
  ```
-AppLaunch.getInstance().displayInAppMessages(NewsFeedActivity.this);
+try {
+    if (Boolean.valueOf(AppLaunch.getInstance().getPropertyOfFeature("feature_code_here", "property_code_here"))) {
+	// what to do when the value is true?
+    } else {
+    	// optional false case
+    }
+} catch (Exception e){
+    e.printStackTrace();
+}
  ```
-
-That's it - the app will load the In-app message during app initialization.
+### FAST NEWS Screenshot
+![Create engagement](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/a-b-test/images/AB.png)
 
 ### Metrics
 A hidden gem inside App Launch Service is collecting metrics. App Launch Service allows extensive support to embed metric collection hooks, across all the concepts. These metrics will help you evaluate results of A/B testing, Feature performance, etc.
@@ -90,6 +93,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-
-[IBM Mobile](mailto:yashsoni21@in.ibm.com)
