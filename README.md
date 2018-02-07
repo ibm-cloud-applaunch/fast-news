@@ -82,7 +82,7 @@ String textColorForDarkBackground = AppLaunch.getInstance().getPropertyOfFeature
 That's it - the app will load the Feature parameters during app initialization.
 
 ### FAST NEWS Screenshots
-![FAST NEWS Concept1 ](https://github.ibm.com/yasoni12/AppLaunchDemo/blob/app-customisation/images/concept1_screenshots.png)
+![FAST NEWS Concept1 ](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/concept1_screenshots.png)
 
 ### Metrics
 A hidden gem inside App Launch Service is collecting metrics. App Launch Service allows extensive support to embed metric collection hooks, across all the concepts. These metrics will help you evaluate results of A/B testing, Feature performance, etc.
