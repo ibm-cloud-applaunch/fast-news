@@ -37,9 +37,9 @@ Let's say you would want to change the app's background. In the App Launch servi
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences. For our ThemeBlue feature, we will,
 	 - Create an Engagement, called - **ThemeBlueEngagement**
 		 - Initialize ThemeBlue feature with,
-			 - toolbarTextColor = "#484848"
-			 - toolbarBackgroundColor = "#4fc3f7"
-			 - lightBackgroundColor = "#e1f5fe"
+			 - toolbarTextColor = "#000000"
+			 - toolbarBackgroundColor = "#9ccc65"
+			 - lightBackgroundColor = "#f8ffd7"
 		 - Initialize Audience,
 			 - Audience = "ThemeSegment"
 
@@ -104,6 +104,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-
-[IBM Mobile](mailto:yashsoni21@in.ibm.com)
