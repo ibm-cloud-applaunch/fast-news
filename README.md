@@ -38,8 +38,8 @@ Let's say you would want to change the app's background. In the App Launch servi
 	 - Create an Engagement, called - **ThemeGreenEngagement**
 		 - Initialize ThemeBlue feature with,
 			 - toolbarTextColor = "#000000"
-			 - toolbarBackgroundColor = "#9ccc65"
-			 - lightBackgroundColor = "#f8ffd7"
+			 - toolbarBackgroundColor = "#4fc3f7"
+			 - lightBackgroundColor = "#b3e5fc"
 		 - Initialize Audience,
 			 - Audience = "ThemeSegment"
 
