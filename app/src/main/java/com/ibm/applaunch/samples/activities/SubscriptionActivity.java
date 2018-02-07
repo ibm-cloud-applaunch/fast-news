@@ -1,4 +1,4 @@
-package com.ibm.examples.yashsoni.applaunchdemo.activities;
+package com.ibm.applaunch.samples.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,13 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import com.ibm.examples.yashsoni.applaunchdemo.R;
-import com.ibm.examples.yashsoni.applaunchdemo.commons.AppCommons;
-import com.ibm.mobile.applaunch.android.api.AppLaunch;
-import com.ibm.mobile.applaunch.android.api.AppLaunchException;
+import com.ibm.applaunch.samples.commons.AppCommons;
 
 public class SubscriptionActivity extends AppCompatActivity {
 

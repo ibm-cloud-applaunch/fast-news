@@ -14,18 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:fullBackupContent="@xml/backup_descriptor">
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name="com.ibm.applaunch.samples.activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.NewsFeedActivity"
+        <activity android:name="com.ibm.applaunch.samples.activities.NewsFeedActivity"
             android:launchMode="singleTop"/>
-        <activity android:name=".activities.NewsDetailActivity"
+        <activity android:name="com.ibm.applaunch.samples.activities.NewsDetailActivity"
             android:launchMode="singleTop"/>
-        <activity android:name=".activities.SubscriptionActivity"
+        <activity android:name="com.ibm.applaunch.samples.activities.SubscriptionActivity"
             android:launchMode="singleTop"/>
     </application>
 </manifest>
