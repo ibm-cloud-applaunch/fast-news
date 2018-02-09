@@ -1,5 +1,5 @@
 # App Launch Concepts and Examples - FAST NEWS
-
+<img src="https://swift.org/assets/images/swift.svg"/>
 ## Overview 
 
 ### App Launch
