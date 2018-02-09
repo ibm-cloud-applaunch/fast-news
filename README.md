@@ -26,13 +26,13 @@ Let's say you would want to change the app's background. In the App Launch servi
 		 - property2  - toolbarBackgroundColor
 		 - property3  - lightBackgroundColor
 
-![Create feature](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_feature.gif)
+<img src="https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_feature.gif"/>
 
  - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. Let's say you want this feature for all Android users then 
 	 - Let's define an audience called, **ThemeSegment** 
 	 - Set its value to 'AllAndroidUsers'
 
-![Create audience](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_audience.gif)
+<img src="https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_audience.gif"/>
 
  - **Engagement** - An engagement is an instantiation of a Feature with properties initialized and attaching one of the pre-defined audiences. For our ThemeBlue feature, we will,
 	 - Create an Engagement, called - **ThemeGreenEngagement**
@@ -43,7 +43,7 @@ Let's say you would want to change the app's background. In the App Launch servi
 		 - Initialize Audience,
 			 - Audience = "ThemeSegment"
 
-![Create engagement](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_engagement.gif)			 
+<img src="https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_engagement.gif"/>			 
 
 Once the above is defined in the Console, we have initialized the service in `initAppLaunchSDK()`
 
@@ -82,7 +82,7 @@ String textColorForDarkBackground = AppLaunch.getInstance().getPropertyOfFeature
 That's it - the app will load the Feature parameters during app initialization.
 
 ### FAST NEWS Screenshots
-![FAST NEWS Concept1 ](https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/concept1_screenshots.png)
+<img src="https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/concept1_screenshots.png"/>
 
 ### Metrics
 A hidden gem inside App Launch Service is collecting metrics. App Launch Service allows extensive support to embed metric collection hooks, across all the concepts. These metrics will help you evaluate results of A/B testing, Feature performance, etc.
