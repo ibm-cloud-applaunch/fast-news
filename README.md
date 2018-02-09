@@ -1,5 +1,5 @@
 # App Launch Concepts and Examples - FAST NEWS
-<img src="https://swift.org/assets/images/swift.svg"/>
+
 ## Overview 
 
 ### App Launch
@@ -26,7 +26,7 @@ Let's say you would want to change the app's background. In the App Launch servi
 		 - property2  - toolbarBackgroundColor
 		 - property3  - lightBackgroundColor
 
-<img src="https://github.com/ibm-cloud-applaunch/sample-android-fast-news/blob/app-customisation/images/create_feature.gif"/>
+<img src="https://raw.githubusercontent.com/ibm-cloud-applaunch/sample-android-fast-news/app-customisation/images/create_feature.gif"/>
 
  - **Audience** - An audience is a collection of attributes that define the characteristics of an audience segment. Let's say you want this feature for all Android users then 
 	 - Let's define an audience called, **ThemeSegment** 
